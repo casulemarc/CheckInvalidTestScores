@@ -27,8 +27,6 @@ public class Driver {
 
 		Scanner input = new Scanner(System.in);
 
-		double total = 0;
-
 		// ask user for size
 		System.out.print("Enter number of test scores:");
 		int testSize = input.nextInt();
@@ -43,7 +41,7 @@ public class Driver {
 			element = input.nextDouble();
 			testArray[i] = element;
 
-			// check all scores
+			// send scores into an array and check for errors
 			try {
 				// create array to hold values
 				newArray = new TestScores(testArray);
@@ -53,6 +51,7 @@ public class Driver {
 				System.exit(0);
 			}
 		}
+		// print results
 		newArray = new TestScores(testArray);
 		System.out.println(newArray.average(testSize));
 
@@ -69,7 +68,7 @@ class TestScores {
 
 	private double[] scores;
 	// track total
-	private static double total = 0;
+	private double total = 0;
 
 	/**
 	 * throw exception through constructor
@@ -88,8 +87,10 @@ class TestScores {
 		}
 
 	}
+
 	/**
 	 * calculate average
+	 * 
 	 * @param size
 	 * @return
 	 */
